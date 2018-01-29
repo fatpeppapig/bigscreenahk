@@ -1,6 +1,22 @@
 ;SetTimer, CheckUpdate, 1000
 Menu Tray, Tip, Kafelki
 
+<!F9::Volume_Mute
+<!F10::Volume_Down
+<!F11::Volume_Up
+<!F12::Media_Play_Pause
+
+>#C::
+  run chrome.exe
+
+  WinRestore, A
+  WinGetPos, X, Y, W, H, A
+
+  nX := Floor((3840 - W) / 2)
+
+  WinMove, A, , nX, 0, W, 2137
+Return
+
 <!Numpad7::
   GetDeltas(W, H, X, Y)
 
@@ -19,7 +35,7 @@ Return
   GetDeltas(W, H, X, Y)
 
   WinRestore, A
-  WinMove, A, , -7+X, 1420+Y, 982+W, 718+H
+  WinMove, A, , -7+X, 1420+Y, 982+W, 717+H
 Return
 
 <!Numpad8::
@@ -33,7 +49,7 @@ Return
   GetDeltas(W, H, X, Y)
 
   WinRestore, A
-  WinMove, A, , 960+X, 1065+Y, 1920+W, 1073+H
+  WinMove, A, , 960+X, 1065+Y, 1920+W, 1072+H
 Return
 
 <!Numpad9::
@@ -54,7 +70,7 @@ Return
   GetDeltas(W, H, X, Y)
 
   WinRestore, A
-  WinMove, A, , 2865+X, 1420+Y, 981+W, 718+H
+  WinMove, A, , 2865+X, 1420+Y, 981+W, 717+H
 Return
 
 <!Numpad5::
@@ -65,6 +81,12 @@ Return
   ny := Floor((2160 - H) / 2)
 
   WinMove, A, , nX, nY, W, H
+Return
+
+<!Numpad0::
+  WinRestore, A
+  WinGetPos, X, Y, W, H, A
+  WinMove, A, , X, 0, W, 2137
 Return
 
 GetDeltas(ByRef W, ByRef H, ByRef X, ByRef Y)
@@ -89,12 +111,26 @@ GetDeltas(ByRef W, ByRef H, ByRef X, ByRef Y)
     H = -8
     W = -16
   }
+  if T = Hyper
+  {
+    X = 8
+    Y = 1
+    H = -9
+    W = -16
+  }
 
   IfInString, T, cezary@yonderbeyond
   {
     X =  7
     H = -7
     W = -14
+  }
+
+  IfInString, T, Visual Studio
+  {
+    X =  8
+    H = -8
+    W = -16
   }
 
   Return

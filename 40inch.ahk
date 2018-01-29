@@ -39,7 +39,7 @@ Return
   GetDeltas(W, H, X, Y)
 
   WinRestore, A
-  WinMove, A, , -7+1280+X, 1064+Y, 1294+W, 2137+H
+  WinMove, A, , -7+1280+X, 1064+Y, 1294+W, 1073+H
 Return
 
 <!^Numpad9::
@@ -60,7 +60,7 @@ Return
   GetDeltas(W, H, X, Y)
 
   WinRestore, A
-  WinMove, A, , -8+1280+1280+X, 1064+Y, 1294+W, 2137+H
+  WinMove, A, , -8+1280+1280+X, 1064+Y, 1294+W, 1073+H
 Return
 
 
